@@ -21,7 +21,7 @@
       .state('dashboard', {
               url: '/dashboard',
               templateUrl: 'app/main/dashboard.html',
-              controller: 'LoginCtrl'
+              controller: 'DashboardController'
           });
 
     $urlRouterProvider.otherwise('/dashboard');

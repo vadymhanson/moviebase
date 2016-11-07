@@ -3,6 +3,9 @@
     <button class="btn btn-lg btn-info" ng-click="FBUserInfo()">Get info</button>
     <button class="btn btn-lg btn-info" ng-click="FBLogout()">Logout</button>
 </div>
-<div>
-    {{$root.fbData | json}}
-</div>
+
+<!-- Search Filter Directive -->
+<search-filter></search-filter>
+
+<!-- Datatable -->
+<datatable films="filmData"></datatable>

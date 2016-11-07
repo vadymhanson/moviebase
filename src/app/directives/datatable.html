@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Release year</th>
+                <th>Language</th>
+                <th>Length</th>
+                <th>Rating</th>
+                <th>Actors</th>
+            </tr>
+            <tr ng-repeat="film in films">
+                <td>{{film.title}}</td>
+                <td>{{film.description}}</td>
+                <td>{{film.category_name}}</td>
+                <td>{{film.release_year}}</td>
+                <td>{{film.language_name}}</td>
+                <td>{{film.length}}</td>
+                <td>{{film.rating}}</td>
+                <td>{{film.actors}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

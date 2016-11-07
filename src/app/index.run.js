@@ -6,9 +6,8 @@
     .run(runBlock);
 
   /** @ngInject */
-  runBlock.$inject = ['$log', '$state', 'FBApi', '$rootScope'];
-  function runBlock($log, $state, FBApi, $rootScope) {
-      // $log.log(FBApi);
+  runBlock.$inject = ['$log', '$state', 'FBApi', '$rootScope', '$http'];
+  function runBlock($log, $state, FBApi, $rootScope, $http) {
       window.fbAsyncInit = function() {
           FB.init({
               appId      : '1596560003986416',
