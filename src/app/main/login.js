@@ -5,8 +5,8 @@
         .module('testAngular')
         .controller('LoginCtrl', ['$scope', '$location', '$state', 'FBApi', '$rootScope', function($scope, $location, $state, FBApi, $rootScope) {
             $scope.tittle = 'Welcome to our movie database';
-            $scope.FBLogin = FBApi.FBLogin;
-            $scope.FBLogout = FBApi.FBLogout;
+            // $scope.FBLogin = FBApi.FBLogin;
+            // $scope.FBLogout = FBApi.FBLogout;
             // $scope.FBUserInfo = function () {
             //     !($scope.$$phase)&&$scope.apply();
             // };

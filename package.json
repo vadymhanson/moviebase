@@ -1,7 +1,9 @@
 {
   "name": "testAngular",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "oauth": "^0.9.14"
+  },
   "scripts": {
     "test": "gulp test"
   },

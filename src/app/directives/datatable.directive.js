@@ -13,6 +13,7 @@
             },
             restrict: 'EA',
             templateUrl: '/app/directives/datatable.html',
+            controller: 'datatableController',
             link: link
         };
         

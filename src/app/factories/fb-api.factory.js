@@ -4,8 +4,8 @@
     angular
         .module('testAngular')
         .factory('FBApi', FBApi);
-    FBApi.$inject = ['$state', '$rootScope', '$timeout', '$http'];
-    function FBApi($state, $rootScope, $timeout, $http) {
+    FBApi.$inject = ['$state', '$rootScope', '$timeout', '$http', '$cookies'];
+    function FBApi($state, $rootScope, $timeout, $http, $cookies) {
         
         function FBLogin() {
                 FB.login(function(response) {
@@ -51,24 +51,26 @@
 
         function FBGetLoginStatus() {
             FB.getLoginStatus(function(response) {
-                console.log('FBGetLoginStatus: ', response);
                 if(response.status == 'connected') {
-                    $state
-                        .go('dashboard');
-                    
+                    $state.go('dashboard');
+                    $cookies.put('accessToken', response.authResponse.accessToken);
                 }
                 else {
-                    $state
-                        .go('login');
+                    $state.go('login');
+                    $cookies.remove('accessToken');
                 }
-                // statusChangeCallback(response);
             });
+        }
+        
+        function checkLogin() {
+            return $cookies.get('accessToken') ? true:false;
         }
 
         return {
             FBLogin: FBLogin,
             FBLogout: FBLogout,
-            FBGetLoginStatus: FBGetLoginStatus
+            FBGetLoginStatus: FBGetLoginStatus,
+            checkLogin: checkLogin
         };
     }
         

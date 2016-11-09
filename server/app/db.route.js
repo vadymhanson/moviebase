@@ -8,6 +8,20 @@ var connection = mysql.createConnection({
     database: config.database,
     password: config.password
 });
+var prefixes = {
+    title: "f", 
+    description: "f", 
+    category_name: "c", 
+    actors: "a", 
+    language_name: "l"
+};
+var fieldNames = {
+    title: "title",
+    description: "description",
+    category_name: "name",
+    actors: "last_name",
+    language_name: "name"
+};
 
 router.get('/films/limit-:limit', function (req, res) {
     var limit = parseInt(req.params.limit);
@@ -34,7 +48,6 @@ router.post('/films/search', function (req, res) {
         'WHERE 1=1 ' + where +
         'GROUP BY f.film_id, c.name ' +
         'limit ? ', [10], function (err, results, fields) {
-        console.log(err);
         res.json(results);
     });
 });
@@ -45,9 +58,8 @@ function parseWhere(params) {
     for (var field in params) {
         var value = params[field];
         if (value.length)
-            where += "AND f." + field + " LIKE %" + value + "% ";
+            where += "AND " + prefixes[field] + "." + fieldNames[field] + " LIKE '%" + value + "%' ";
     }
-
     return where;
 
 }

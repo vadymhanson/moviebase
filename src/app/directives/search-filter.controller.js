@@ -22,10 +22,9 @@
            $http
                .post('http://localhost:5000/films/search', $scope.searchData)
                .success(function(response) {
-                   console.log(response);                   
+                   $scope.films = response;
                })
       }
     }
-    
-            
+                
 })();

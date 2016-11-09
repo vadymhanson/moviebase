@@ -9,7 +9,7 @@
 
         return {
             scope: {
-                
+                films: '='
             },
             restrict: 'EA',
             templateUrl: '/app/directives/search-filter.html',

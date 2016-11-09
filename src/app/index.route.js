@@ -11,7 +11,11 @@
       .state('login', {
         url: '/login',
         templateUrl: 'app/main/login.html',
-        controller: 'LoginCtrl'
+        controller: 'LoginCtrl',
+        data: {
+          'noLogin': true
+        }
+
       })
       .state('about', {
           url: '/about',
