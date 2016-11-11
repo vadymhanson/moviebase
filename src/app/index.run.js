@@ -9,13 +9,30 @@
   runBlock.$inject = ['$log', '$state', 'FBApi', '$rootScope', '$http', '$stateParams'];
   function runBlock($log, $state, FBApi, $rootScope, $http, $stateParams) {
 
-    $http
-        .post('http://localhost:5000/check_auth')
-        .success(function (response) {
-          if(response.auth == "false") {
-            $state.go('login')
-          }
-        });
+
+     
+      window.fbAsyncInit = function() {
+          FB.init({
+              appId      : '1596560003986416',
+              xfbml      : true,
+              version    : 'v2.8',
+              cookie     : true,
+              oauth: true
+          });
+          FB.AppEvents.logPageView();
+          FBApi.FBGetLoginStatus();
+          
+      };
+
+      (function(d, s, id){
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    
+    
     
     $log.debug('runBlock end');
   }

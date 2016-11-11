@@ -1,11 +1,12 @@
 <div class="container text-center">
-    <h1>Hello world</h1>
-    <button class="btn btn-lg btn-info" ng-click="FBUserInfo()">Get info</button>
-    <button class="btn btn-lg btn-info" ng-click="FBLogout()">Logout</button>
-</div>
 
+    <button class="btn btn-lg btn-info" ng-click="FBLogout()">Logout</button>
+    <button class="btn btn-lg btn-info" ng-click="check()">check</button>
+</div>
+<div><span>{{userFirstName}}</span><span>{{userEmail}}</span></div>
+<br/>
 <!-- Search Filter Directive -->
-<search-filter films="filmData"></search-filter>
+<search-filter ></search-filter>
 
 <!-- Datatable -->
 <datatable films="filmData"></datatable>

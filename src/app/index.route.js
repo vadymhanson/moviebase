@@ -6,7 +6,7 @@
     .config(routerConfig);
 
   /** @ngInject */
-  function routerConfig($stateProvider, $urlRouterProvider) {
+  function routerConfig($stateProvider, $urlRouterProvider,$locationProvider) {
     $stateProvider
       .state('login', {
         url: '/login',
@@ -20,7 +20,7 @@
       .state('about', {
           url: '/about',
           templateUrl: 'app/main/about.html',
-          controller: 'LoginCtrl'
+          controller: 'AboutController'
       })  
       .state('dashboard', {
               url: '/dashboard',
@@ -28,7 +28,8 @@
               controller: 'DashboardController'
           });
 
-    $urlRouterProvider.otherwise('/dashboard');
+      $urlRouterProvider.otherwise('/dashboard');
+      $locationProvider.html5Mode(true);
   }
-
+    
 })();

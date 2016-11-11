@@ -49,8 +49,15 @@ router.post('/films/search', function (req, res) {
         'GROUP BY f.film_id, c.name ' +
         'limit ? ', [10], function (err, results, fields) {
         res.json(results);
+        createSearchLog(re)
     });
 });
+
+function createSearchLog(data) {
+    connection.query('INSERT INTO `search_log` VALUES (NULL, "?", NULL, "?", "?", ?) ', data, function (err, results, fields) {
+        console.log(results);
+    });
+}
 
 function parseWhere(params) {
     var where = '';
